@@ -1,0 +1,18 @@
+﻿@model MoviesListViewModel
+<h1>@ViewBag.Title</h1>
+<h2>@Model.Sorted</h2>
+<div class="row mt-5 mb-2">
+    @{
+         foreach(var movie in Model.AllMovies)
+         {
+         <div class="col-lg-4">
+            <img class="img-thumbnail" src="@movie.Image", alt="@movie.Name"/>
+            <h2>@movie.Name</h2>
+            <p>@movie.ShortDescription</p>
+            <p>Вышел в  @movie.Release</p>
+            <p>Рейтинг: @movie.Rating</p>
+            <p><a class="btn btn-warning" asp-controller="Movies", asp-action="Index" asp-route-id="@movie.Id">Продолжение в источнике...</a></p>
+         </div>   
+         }
+    }
+</div>

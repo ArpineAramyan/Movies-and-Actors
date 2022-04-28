@@ -1,0 +1,19 @@
+﻿@model MovieListViewModel
+<h1>@Model.Movie.Name</h1>
+<img class="img-thumbnail" src="@Model.Movie.Image", alt="@Model.Movie.Name"/>
+<p>@Model.Movie.ShortDescription</p>
+<p>Вышел в @Model.Movie.Release</p>
+<p>Рейтинг: @Model.Movie.Rating</p>
+<h2>Актёрский состав: </h2>
+<div class="row mt-5 mb-2">
+    @{
+         foreach(var actor in Model.AllActors)
+         {
+         <div class="col-lg-4">
+            <img class="img-thumbnail" src="@actor.Image", alt="@actor.Name"/>
+            <h2>@actor.Name</h2>
+            <p><a class="btn btn-warning" asp-controller="Actors", asp-action="" asp-route-id="@actor.Id">Продолжение в источнике...</a></p>
+         </div>   
+         }
+    }
+</div>
